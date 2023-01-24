@@ -3,7 +3,13 @@ import Alert from "../Alert";
 
 export default function UserLinks({ BASE_URL, data }) {
   data.links = data.links.map((link, i) => ({ id: i, ...link }));
+  const buckets = data.links.reduce((acc, obj) => {
+    const group = obj.group || "Extra";
+    const curGroup = acc[group] ?? [];
 
+    return { ...acc, [group]: [...curGroup, obj] };
+  }, {});
+  console.log(buckets);
   return (
     <>
       {!data.links && <Alert type="info" message="No links found" />}
