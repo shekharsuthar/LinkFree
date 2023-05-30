@@ -36,7 +36,7 @@ export async function getStaticProps() {
   const { stats: todayStats } = await getTodayStats();
 
   return {
-    props: { total: totalStats, today: todayStats },
+    props: { total: totalStats, today: todayStats, noAlert: totalStats.active > 0 },
     revalidate: 60 * 15, //15 minutes
   };
 }

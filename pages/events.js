@@ -35,7 +35,7 @@ export async function getServerSideProps(context) {
   });
 
   return {
-    props: { events },
+    props: { events, noAlert: events.length > 0 },
   };
 }
 

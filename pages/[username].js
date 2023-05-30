@@ -46,7 +46,7 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { data: profile, BASE_URL: process.env.NEXT_PUBLIC_BASE_URL },
+    props: { data: profile, BASE_URL: process.env.NEXT_PUBLIC_BASE_URL, noAlert: true },
   };
 }
 

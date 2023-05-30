@@ -30,7 +30,7 @@ export async function getStaticProps() {
   }
 
   return {
-    props: { data },
+    props: { data, noAlert: data.users.length > 0 },
     revalidate: 60 * 60 * 2, //2 hours
   };
 }

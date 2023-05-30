@@ -16,12 +16,14 @@ const DynamicMap = dynamic(() => import("../components/map/Map"), {
 });
 
 export async function getStaticProps() {
+  let noAlert = false;
   let data = {
     users: [],
     tags: [],
   };
   try {
     data.users = await getUsers();
+    if (data.users.length > 0) noAlert = true;
   } catch (e) {
     logger.error(e, "ERROR search users");
   }
@@ -45,7 +47,7 @@ export async function getStaticProps() {
   }
 
   return {
-    props: { data },
+    props: { data, noAlert },
     revalidate: 60 * 60 * 12, //12 hours
   };
 }
