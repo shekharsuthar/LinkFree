@@ -11,9 +11,7 @@ concurrency:
 
 jobs:
   changelog:
-    if: github.repository == 'EddieHubCommunity/LinkFree'
-    runs-on: ubuntu-latest
-
+   runs-on: ubuntu-latest
     steps:
       # check out the repository with all releases
       - uses: actions/checkout@v3
