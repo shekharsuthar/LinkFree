@@ -5,7 +5,6 @@ on:
       - main
     paths-ignore:
       - "data/**"
-## dfsiusd
 concurrency:
   group: "main-branch"
 
